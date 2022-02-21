@@ -1,6 +1,7 @@
 package tests;
 
 import lib.CoreTestCase;
+import lib.Platform;
 import lib.ui.ArticlePageObject;
 import lib.ui.MainPageObject;
 import lib.ui.SearchPageObject;
@@ -19,6 +20,9 @@ public class ChangeAppConditionsTests extends CoreTestCase {
 
     @Test
     public void testChangeScreenOrientationOnSearchResults(){
+        if (Platform.getInstance().isMW()) {
+            return;
+        }
 
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
 
