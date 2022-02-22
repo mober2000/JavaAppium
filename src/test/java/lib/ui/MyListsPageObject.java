@@ -1,6 +1,5 @@
 package lib.ui;
 
-import io.appium.java_client.AppiumDriver;
 import lib.Platform;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -9,7 +8,8 @@ abstract public class MyListsPageObject extends MainPageObject{
     protected static String
             FOLDER_BY_NAME_TPL,
             ARTICLE_BY_TITLE_TPK,
-            REMOVE_FROM_SAVED_BUTTON;
+            REMOVE_FROM_SAVED_BUTTON,
+            TITLE_WITH_WATCHSTAR;
 
     private static String getFolderXpathByName(String name_of_folder){
         return FOLDER_BY_NAME_TPL.replace("{FOLDER_NAME}", name_of_folder);
@@ -77,5 +77,9 @@ abstract public class MyListsPageObject extends MainPageObject{
             driver.navigate().refresh();
         }
         this.waitForArticleToDisappearByTitle(article_title);
+    }
+
+    public int getNumberOfTitles() {
+        return this.getElements(TITLE_WITH_WATCHSTAR).size();
     }
 }

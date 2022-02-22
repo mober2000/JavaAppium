@@ -15,7 +15,8 @@ abstract public class ArticlePageObject extends MainPageObject{
             ADD_TO_MY_LIST_OVERLAY,
             MY_LIST_NAME_INPUT,
             MY_LIST_OK_BUTTON,
-            CLOSE_ARTICLE_BUTTON;
+            CLOSE_ARTICLE_BUTTON,
+            TITLE_WITH_WATCHSTAR;
 
     public ArticlePageObject(RemoteWebDriver driver){
         super(driver);

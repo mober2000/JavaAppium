@@ -9,6 +9,7 @@ public class MWMyListsPageObject extends MyListsPageObject {
         ARTICLE_BY_TITLE_TPK = "xpath://ul[contains(@class, 'watchlist')]//h3[contains(text(),'{TITLE}')]";
         //REMOVE_FROM_SAVED_BUTTON = "xpath://ul[contains(@class, 'watchlist')]//h3[contains(text(),'{TITLE}')]/../../[contains(@class, 'watched')]";
         REMOVE_FROM_SAVED_BUTTON = "css:.mw-ui-icon-wikimedia-unStar-progressive";
+        TITLE_WITH_WATCHSTAR = "css:.page-summary.with-watchstar";
     }
 
     public MWMyListsPageObject (RemoteWebDriver driver){
