@@ -9,16 +9,11 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static org.junit.Assert.*;
+
 public class SearchTests extends CoreTestCase {
 
-    private lib.ui.MainPageObject MainPageObject;
-    protected void setUp() throws Exception{
-        super.setUp();
-
-        MainPageObject = new MainPageObject(driver);
-    }
-
-    @Test
+@Test
     public void testSearch(){
 
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);

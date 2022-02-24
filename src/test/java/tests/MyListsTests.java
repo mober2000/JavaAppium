@@ -10,6 +10,8 @@ import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class MyListsTests extends CoreTestCase {
 
     private static String
@@ -124,7 +126,7 @@ public class MyListsTests extends CoreTestCase {
         if (Platform.getInstance().isAndroid() || Platform.getInstance().isIOS()) {
             MyListsPageObject.waitForArticleToAppearByTitle("Linkin Park discography");
         } else{
-            Assert.assertEquals(MyListsPageObject.getNumberOfTitles() + 1, number_of_titles);
+            assertEquals(MyListsPageObject.getNumberOfTitles() + 1, number_of_titles);
         }
     }
 }

@@ -2,22 +2,15 @@ package tests;
 
 import lib.CoreTestCase;
 import lib.ui.ArticlePageObject;
-import lib.ui.MainPageObject;
 import lib.ui.SearchPageObject;
 import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.SearchPageObjectFactory;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ArticleTests extends CoreTestCase {
 
-    private lib.ui.MainPageObject MainPageObject;
-    protected void setUp() throws Exception{
-        super.setUp();
-
-        MainPageObject = new MainPageObject(driver);
-    }
-
-    @Test
+@Test
     public void testCompareArticleTitle(){
 
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
@@ -29,7 +22,7 @@ public class ArticleTests extends CoreTestCase {
         ArticlePageObject ArticlePageObject = ArticlePageObjectFactory.get(driver);
         String article_title = ArticlePageObject.getArticleTitle();
 
-        assertEquals(
+        Assert.assertEquals(
                 "We see unexpected title",
                 "Java (programming language)",
                 article_title);

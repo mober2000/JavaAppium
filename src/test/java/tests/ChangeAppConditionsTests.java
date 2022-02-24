@@ -3,20 +3,14 @@ package tests;
 import lib.CoreTestCase;
 import lib.Platform;
 import lib.ui.ArticlePageObject;
-import lib.ui.MainPageObject;
 import lib.ui.SearchPageObject;
 import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.SearchPageObjectFactory;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class ChangeAppConditionsTests extends CoreTestCase {
-
-    private lib.ui.MainPageObject MainPageObject;
-    protected void setUp() throws Exception{
-        super.setUp();
-
-        MainPageObject = new MainPageObject(driver);
-    }
 
     @Test
     public void testChangeScreenOrientationOnSearchResults(){
