@@ -1,5 +1,6 @@
 package lib.ui;
 
+import io.qameta.allure.Step;
 import lib.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -15,17 +16,18 @@ abstract public class ArticlePageObject extends MainPageObject{
             ADD_TO_MY_LIST_OVERLAY,
             MY_LIST_NAME_INPUT,
             MY_LIST_OK_BUTTON,
-            CLOSE_ARTICLE_BUTTON,
-            TITLE_WITH_WATCHSTAR;
+            CLOSE_ARTICLE_BUTTON;
 
     public ArticlePageObject(RemoteWebDriver driver){
         super(driver);
     }
 
+    @Step("Waiting wor title on the article page")
     public WebElement waitForTitleElement(){
         return this.waitForElementPresent(TITLE, "Cannot find article title on page",15);
     }
 
+    @Step ("Get article title")
     public String getArticleTitle(){
         WebElement title_element = waitForTitleElement();
         if (Platform.getInstance().isAndroid()){
@@ -37,6 +39,7 @@ abstract public class ArticlePageObject extends MainPageObject{
         }
     }
 
+    @Step ("Swiping to footer on the article page")
     public void swipeToFooter(){
         if(Platform.getInstance().isAndroid()){
             this.swipeUpToFindElement(FOOTER_ELEMENT, "Cannot find the end of article", 40);
@@ -47,6 +50,7 @@ abstract public class ArticlePageObject extends MainPageObject{
         }
     }
 
+    @Step ("Adding the article to my list")
     public void addArticleToMyList(String name_of_folder){
 
         clickOptionsButtonAndAddToMyList();
@@ -74,6 +78,7 @@ abstract public class ArticlePageObject extends MainPageObject{
                 5);
     }
 
+    @Step ("Closing the article")
     public void closeArticle(){
         if(Platform.getInstance().isIOS() || Platform.getInstance().isAndroid()){
         this.waitForElementAndClick(
@@ -131,6 +136,7 @@ abstract public class ArticlePageObject extends MainPageObject{
                 5);
     }
 
+    @Step ("Adding the article to my saved articles")
     public void addArticlesToMySaved() {
         if(Platform.getInstance().isMW()){
             this.removeArticleFromSavedIfItAdded();
@@ -138,6 +144,7 @@ abstract public class ArticlePageObject extends MainPageObject{
         this.waitForElementAndClick(OPTIONS_ADD_TO_MY_LIST_BUTTON, "Cannot find option to add article to reading list",5);
     }
 
+    @Step ("Removing article from saved if it has been added")
     public void removeArticleFromSavedIfItAdded(){
         if(this.isElementPresent( OPTIONS_REMOVE_FROM_MY_LIST_BUTTON)){
             this.waitForElementAndClick(

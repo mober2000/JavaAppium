@@ -153,7 +153,7 @@ public class MainPageObject {
                 .getY();
         if (Platform.getInstance().isMW()) {
             JavascriptExecutor JSExecutor = (JavascriptExecutor) driver;
-            Object js_result = JSExecutor.executeScript("return window.pageYOffser");
+            Object js_result = JSExecutor.executeScript("return window.pageYOffset");
             element_location_by_y -= Integer.parseInt(js_result.toString());
         }
         int screen_size_by_y = driver.manage().window().getSize().getHeight();
