@@ -58,6 +58,11 @@ public class ArticleTests extends CoreTestCase {
 
 
     @Test
+    @Feature(value="Article")
+    @DisplayName("Проверка появления статьи")
+    @Description("Делаем поиск по названию статьи '{search_line}' и проверяем наличие заголовка")
+    @Step("Starting test testCheckTitle")
+    @Severity(value = SeverityLevel.MINOR)
     public void testCheckTitle(){
 
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);

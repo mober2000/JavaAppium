@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import lib.CoreTestCase;
 import lib.Platform;
 import lib.ui.*;
@@ -7,7 +9,7 @@ import lib.ui.factories.ArticlePageObjectFactory;
 import lib.ui.factories.MyListsPageObjectFactory;
 import lib.ui.factories.NavigationUIFactory;
 import lib.ui.factories.SearchPageObjectFactory;
-import org.junit.Assert;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -20,6 +22,11 @@ public class MyListsTests extends CoreTestCase {
             password = "X0makQA!";
 
     @Test
+    @Features(value ={@Feature(value="Search"), @Feature(value="Article")})
+    @DisplayName("Сохранение первой статьи в список/в папку")
+    @Description("Мы сохраняем статью, проверяем что она сохранени, а затем удаляем из списка/из папки")
+    @Step("Starting test testSaveFirstArticleToMyList")
+    @Severity(value = SeverityLevel.NORMAL)
     public void testSaveFirstArticleToMyList() {
 
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);
@@ -67,6 +74,11 @@ public class MyListsTests extends CoreTestCase {
     }
 
     @Test
+    @Features(value ={@Feature(value="Search"), @Feature(value="Article")})
+    @DisplayName("Сохранение двух статей в список/папку")
+    @Description("Мы сохраняем 2 статьи в папку/список, затем удаляем одну и проверяем что осталась другая статья")
+    @Step("Starting test testSaveTwoArticleAndDeleteOne")
+    @Severity(value = SeverityLevel.NORMAL)
     public void testSaveTwoArticleAndDeleteOne() {
 
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);

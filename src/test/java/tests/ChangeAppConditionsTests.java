@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.*;
+import io.qameta.allure.junit4.DisplayName;
 import lib.CoreTestCase;
 import lib.Platform;
 import lib.ui.ArticlePageObject;
@@ -13,6 +15,11 @@ import static org.junit.Assert.assertEquals;
 public class ChangeAppConditionsTests extends CoreTestCase {
 
     @Test
+    @Features(value ={@Feature(value="Search"), @Feature(value="Article")})
+    @DisplayName("Смена ориентации в приложении")
+    @Description("Мы проверяем что смена ориентации телефона не вредит работе приложения")
+    @Step("Starting test testChangeScreenOrientationOnSearchResults")
+    @Severity(value = SeverityLevel.MINOR)
     public void testChangeScreenOrientationOnSearchResults(){
         if (Platform.getInstance().isMW()) {
             return;
@@ -42,6 +49,11 @@ public class ChangeAppConditionsTests extends CoreTestCase {
     }
 
     @Test
+    @Feature(value="Search")
+    @DisplayName("Проверка приложения после бэкграунда")
+    @Description("Мы запускаем приложение, затем переводим его в бэкграунд и проверяем что после бэкграунда приложение работает")
+    @Step("Starting test testCheckSearchArticleInBackground")
+    @Severity(value = SeverityLevel.MINOR)
     public void testCheckSearchArticleInBackground(){
 
         SearchPageObject SearchPageObject = SearchPageObjectFactory.get(driver);

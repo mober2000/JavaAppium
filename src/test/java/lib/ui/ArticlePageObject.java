@@ -91,6 +91,7 @@ abstract public class ArticlePageObject extends MainPageObject{
         }
     }
 
+    @Step ("Добавление статьи в существующий лист")
     public void addArticleToExistingList() {
         clickOptionsButtonAndAddToMyList();
 
@@ -106,8 +107,9 @@ abstract public class ArticlePageObject extends MainPageObject{
 
     }
 
-        public void goToTheList (String name_of_folder){
-            this.waitForElementAndClick(
+    @Step ("Переход в 'My lists'")
+    public void goToTheList (String name_of_folder){
+        this.waitForElementAndClick(
                 "xpath://android.widget.FrameLayout[@content-desc='My lists']",
                 "Cannot find navigation button to My List",
                 5);
@@ -118,6 +120,7 @@ abstract public class ArticlePageObject extends MainPageObject{
                 5);
     }
 
+    @Step ("Проверка появления заголовка")
     public void assertTitlePresent () {
         this.assertElementPresent(
                 TITLE,
@@ -125,6 +128,7 @@ abstract public class ArticlePageObject extends MainPageObject{
 
     }
 
+    @Step ("Клик по меню и добавление статьи")
     private void clickOptionsButtonAndAddToMyList() {
         this.waitForElementAndClick(
                 OPTIONS_BUTTON,

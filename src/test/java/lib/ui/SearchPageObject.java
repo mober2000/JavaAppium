@@ -91,6 +91,7 @@ abstract public class SearchPageObject extends MainPageObject{
                 "We supposed not to find any results");
     }
 
+    @Step ("Проверка наличия текста: '{text}'")
     public void assertElementHasText(String text) {
         this.assertElementHasText(
                 SEARCH_INIT_ELEMENT,
@@ -99,14 +100,17 @@ abstract public class SearchPageObject extends MainPageObject{
                 5);
     }
 
+    @Step ("Получение количества результатов")
     public List<WebElement> getCheckList() {
         return this.getElements(SEARCH_LIST_RESULT);
     }
 
+    @Step ("Получение названия статей в списке")
     public List<WebElement> searchResultTitles() {
         return this.getElements(SEARCH_RESULT_TITLE);
     }
 
+    @Step ("Проверка наличия заголовка: '{title}' и наличия описания: '{description}'")
     public void waitForElementByTitleAndDescription(String title, String description) {
         String search_result_xpath = getResultSearchContainer(title, description);
         this.waitForElementPresent(search_result_xpath, "Cannot find search result with " + title + " and " + description);
